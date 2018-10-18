@@ -4,6 +4,10 @@
     <mt-header fixed title="黑马程序员.vue项目"></mt-header>
 
     <!-- 中间路由 -->
+		<transition>
+					<router-view></router-view>
+		</transition>
+		
 
     <!-- 底部区域 -->
       <nav class="mui-bar mui-bar-tab">
@@ -36,12 +40,22 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+	.app-container{
+		padding-top: 40px;
+		overflow-x: hidden;
+	}
+
+	.v-enter{
+		opacity: 0;
+		transform: translateX(100%)
+	}
+	.v-leave-to{
+		opacity: 0;
+		transform: translateX(-100%);
+		position: absolute;
+	}
+	.v-enter-active,
+	.v-leave-active{
+		transition: all 0.5s ease;
+	}
 </style>
